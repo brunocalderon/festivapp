@@ -1,0 +1,23 @@
+{
+  "name": "festivapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brunocalderon/festivapp.git"
+  },
+  "author": "Bruno Calderon <b@bcalderon.com> (https://bcalderon.com/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brunocalderon/festivapp/issues"
+  },
+  "homepage": "https://github.com/brunocalderon/festivapp#readme",
+  "dependencies": {
+    "fastify": "^3.27.4",
+    "fastify-static": "^4.5.0"
+  }
+}

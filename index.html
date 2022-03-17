@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FestivApp - Lollapalooza Chile</title>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@5.10.2/main.min.css'>
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+
+        #calendar {
+            max-width: 1100px;
+            margin: 40px auto;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div id='calendar'></div>
+
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@5.10.2/main.min.js'></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
+                timeZone: 'GMT-3',
+                initialView: 'resourceTimelineDay',
+                aspectRatio: 1.5,
+                headerToolbar: {
+                    left: '',
+                    center: 'title',
+                    right: 'prev,next'
+                },
+
+                titleFormat: {
+                    month: 'short',
+                    day: 'numeric'
+                },
+
+                editable: false,
+                resourceAreaHeaderContent: 'Escenarios',
+                duration: {
+                    days: 3
+                },
+
+                initialDate: '2022-03-18T11:00:00-03:00',
+                visibleRange: {
+                    start: '2022-03-18T11:00:00-03:00',
+                    end: '2022-03-20'
+                },
+
+                slotMinWidth: 50,
+                eventMinWidth: 150,
+                slotMinTime: '12:00:00',
+                slotMaxTime: '23:00:00',
+                slotDuration: '00:15',
+                slotLabelInterval: '00:15',
+                slotLabelFormat: [{
+                        hour: 'numeric',
+                        meridiem: 'short'
+                    },
+                    {
+                        minute: '2-digit',
+                        omitZeroMinute: false
+                    }
+                ],
+
+                // slotLabelFormat: {
+                //   hour: 'numeric',
+                //   minute: '2-digit',
+                //   omitZeroMinute: true,
+                //   meridiem: 'short'
+                // },
+                resourceOrder: 'resourceIndex',
+                resources: [{
+                        id: 'vtr_stage',
+                        resourceIndex: 1,
+                        type: 'outdoor_stage',
+                        name: 'VTR Stage',
+                        title: 'VTR',
+                        sponsor: 'VTR',
+                        eventColor: 'red'
+                    },
+
+                    {
+                        id: 'banco_chile_stage',
+                        resourceIndex: 2,
+                        type: 'outdoor_stage',
+                        name: 'Banco de Chile Stage',
+                        title: 'Banco Chile',
+                        sponsor: 'Banco de Chile',
+                        eventColor: 'blue'
+                    },
+
+                    {
+                        id: 'perry_stage',
+                        resourceIndex: 3,
+                        type: 'outdoor_stage',
+                        name: `Perry's Stage`,
+                        title: `Perry's`,
+                        sponsor: 'VTR',
+                        eventColor: 'green'
+                    }
+                ],
+
+
+                events: window.eventsList
+            });
+
+
+            calendar.render();
+        });
+
+        window.eventsList = [
+            // VTR - Friday 18th
+            {
+                resourceId: 'vtr_stage',
+                title: 'Foo Fighters',
+                start: '2022-03-18T21:00:00-03:00',
+                end: '2022-03-18T23:00:00-03:00'
+            },
+
+            {
+                resourceId: 'vtr_stage',
+                title: 'Jhay Cortez',
+                start: '2022-03-18T18:45:00-03:00',
+                end: '2022-03-18T19:45:00-03:00'
+            },
+
+            {
+                resourceId: 'vtr_stage',
+                title: 'Idles',
+                start: '2022-03-18T16:45:00-03:00',
+                end: '2022-03-18T17:45:00-03:00'
+            },
+
+            {
+                resourceId: 'vtr_stage',
+                title: 'The Wombats',
+                start: '2022-03-18T14:45:00-03:00',
+                end: '2022-03-18T15:45:00-03:00'
+            },
+
+            {
+                resourceId: 'vtr_stage',
+                title: 'The Alive',
+                start: '2022-03-18T13:15:00-03:00',
+                end: '2022-03-18T14:00:00-03:00'
+            },
+
+            // Banco de Chile - Friday 18th
+            {
+                resourceId: 'banco_chile_stage',
+                title: 'Martin Garrix',
+                start: '2022-03-18T19:45:00-03:00',
+                end: '2022-03-18T21:00:00-03:00'
+            },
+
+            {
+                resourceId: 'banco_chile_stage',
+                title: 'Cultura Profética',
+                start: '2022-03-18T17:45:00-03:00',
+                end: '2022-03-18T18:45:00-03:00'
+            },
+
+            {
+                resourceId: 'banco_chile_stage',
+                title: 'Marky Ramone',
+                start: '2022-03-18T15:45:00-03:00',
+                end: '2022-03-18T16:45:00-03:00'
+            },
+
+            {
+                resourceId: 'banco_chile_stage',
+                title: 'Bocho',
+                start: '2022-03-18T14:00:00-03:00',
+                end: '2022-03-18T14:45:00-03:00'
+            },
+
+            {
+                resourceId: 'banco_chile_stage',
+                title: 'Flor de Rap',
+                start: '2022-03-18T12:15:00-03:00',
+                end: '2022-03-18T13:15:00-03:00'
+            },
+
+            // Perry's - Friday 18th
+            {
+                resourceId: 'perry_stage',
+                title: 'Kaytranada',
+                start: '2022-03-18T21:45:00-03:00',
+                end: '2022-03-18T22:45-03:00'
+            },
+
+            {
+                resourceId: 'perry_stage',
+                title: 'Channel Tres',
+                start: '2022-03-18T20:30:00-03:00',
+                end: '2022-03-18T21:30-03:00'
+            },
+
+            {
+                resourceId: 'perry_stage',
+                title: '?????',
+                start: '2022-03-18T19:15:00-03:00',
+                end: '2022-03-18T20:15-03:00'
+            },
+
+            {
+                resourceId: 'perry_stage',
+                title: 'Trueno',
+                start: '2022-03-18T17:45:00-03:00',
+                end: '2022-03-18T18:45-03:00'
+            },
+
+            {
+                resourceId: 'perry_stage',
+                title: 'Polimá Westcoast & Galee Galee',
+                start: '2022-03-18T16:15:00-03:00',
+                end: '2022-03-18T17:15-03:00'
+            },
+
+            {
+                resourceId: 'perry_stage',
+                title: 'Pablo Vittar',
+                start: '2022-03-18T15:00:00-03:00',
+                end: '2022-03-18T16:00-03:00'
+            },
+
+            {
+                resourceId: 'perry_stage',
+                title: 'Harry Nach',
+                start: '2022-03-18T14:00:00-03:00',
+                end: '2022-03-18T14:45-03:00'
+            },
+
+            {
+                resourceId: 'perry_stage',
+                title: 'Kid Tetoon',
+                start: '2022-03-18T13:00:00-03:00',
+                end: '2022-03-18T13:45-03:00'
+            },
+
+            // VTR - Sunday 20th
+            {
+                resourceId: 'vtr_stage',
+                title: 'The Strokes',
+                start: '2022-03-20T21:00:00-03:00',
+                end: '2022-03-20T22:30:00-03:00'
+            },
+
+            {
+                resourceId: 'vtr_stage',
+                title: 'Machine Gun Kelly',
+                start: '2022-03-20T18:45:00-03:00',
+                end: '2022-03-20T20:00:00-03:00'
+            },
+
+            {
+                resourceId: 'vtr_stage',
+                title: 'LP',
+                start: '2022-03-20T16:45:00-03:00',
+                end: '2022-03-20T17:45:00-03:00'
+            },
+
+            {
+                resourceId: 'vtr_stage',
+                title: 'LP',
+                start: '2022-03-20T16:45:00-03:00',
+                end: '2022-03-20T17:45:00-03:00'
+            },
+
+            {
+                resourceId: 'vtr_stage',
+                title: 'LP',
+                start: '2022-03-20T16:45:00-03:00',
+                end: '2022-03-20T17:45:00-03:00'
+            }
+        ];
+    </script>
+
+</body>
+
+</html>
